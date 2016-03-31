@@ -1,0 +1,81 @@
+<?php
+    
+    require_once('database_template.php');
+    $database = "furniture";
+
+    $query = "select * from inventory";
+    $result = query_db($query, $database);
+    foreach($result as $row){
+        $sku = $row['sku'];
+        $name = $row['description'];
+        $options .= '<option id="' . $sku . '">' . $name . '</option>';
+    }
+
+    //above loop replicates the following options for each item in inventory
+    //<option id="d1">Dining Room</option>
+
+?>
+<html>
+<head>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script>
+
+        $( document ).ready(function() {
+            $("#price").val("");//initialize price to $0
+            $("#selector").val("Select Item");//Set dropdown to "Select Item"
+
+            $("#selector").change(function() {//generates trigger for calling db
+                var sku = $("#selector").children(":selected").attr("id");//gets the value of dropdown
+                $.get( "inventory1_callback.php", { sku: sku } ) //backend call to db, passing through sku variable
+                    .done(function( data ) {
+                        var returndata = $.parseJSON(data);//return order is [0]=price,[1]=color,[2]=filename
+                        $("#price").val(returndata[0]);
+                        $("#color").val(returndata[1]);
+                        var filename = returndata[2];
+console.log( 'data' );
+                     console.log(' data ');
+console.log(data); console.log(returndata); 
+                        //$("#imgHolder").html("<a href='details.php?sku=" + sku + "'><img src='furniture/" + filename + "'></a>");//e-commerce module
+                        $("#imgHolder").html("<img src='furniture/" + filename + "'>");//showroom
+ 
+                });
+            });
+        });
+    </script>
+    </head>
+<body>
+<center><h1>Duane's Furniture Warehouse</h1></center><br />
+    Inventory - select<br />
+
+<select id="selector"><option id="0" selected="selected">Select Item</option>
+<?php
+    echo $options;
+?>
+</select>
+<br />
+<br />
+Details:<br />
+Price:$<input id="price" value=""><br />
+Color:<input id="color" value=""><br />
+<div id="imgHolder"></div>
+
+
+</body>
+</html>
+
+<?php
+
+
+
+/*
+$cmd = "export cores=8;";//define variables in bash
+$cmd .= "export priority=2;";
+$cmd .= "export search=js;";
+$cmd .= "ls -lah *;";//execute command in bash
+//$cmd .= "{echo '$search'};"
+echo $cmd;
+$output = exec($cmd, $stdout, $stderr);
+echo $stdout;//return standard out from bash
+*/
+?>
+

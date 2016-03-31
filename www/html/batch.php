@@ -1,0 +1,100 @@
+<?php
+
+
+/*  batch.php
+
+    Jeff Goldberg WSMS 1/2016
+
+    Start Mosquitto Message Broker by default
+    Run freeform commands restricted to user jeff01 (admin)
+
+*/
+
+
+include ("../config.php");
+
+session_start();
+
+ if  ($_SESSION['email'] != '') {           // set session email
+        $email = $_SESSION['email'];
+        $emailStore = $email;
+                
+}else {
+        $emailStore='xxx';
+      }
+
+$run = $_POST['command'];   //set command in prepration to execute
+
+
+
+require_once("rs.html");
+$_SESSION['email']  = $emailStore;          //set session email after considering $emailStore
+$email = $emailStore;
+
+
+                                                                                                                                                
+if ($run !='') {    echo "<h4>$run</h4>";//   Run command after verifying authority
+    if ($emailStore != $admin) {
+                echo $emailStore.'.............BLOCKED!!!!!..........BLOCKED!!!!';
+    }else {
+                $cmd = $run;
+                exec($cmd, $stdout, $stderr);
+                     //echo $emailStore.'  jg..';              
+         }
+                                                                                                                          
+    }
+
+        // default script     >>>>>>>>>>>>MQTT INITIATE<<<<<<<<<<<<<<<<<<
+else{
+
+$cmd="ssmtp jeffgoldberg1@gmail.com < /email.txt";          //send email alert
+exec($cmd, $stdout, $stderr);
+
+
+
+
+
+echo " .</br>                                   <h4>$cmd</h4>";
+
+
+
+echo " <h4>b4</h4> .</br>  ";
+$output = shell_exec("/terminal.bat 2>&1");
+echo $output;
+
+//exec($cmd, $stdout, $stderr);
+echo " <h4>a4</h4> .</br>  ";
+//$cmd="mosquitto";
+//exec($cmd, $stdout, $stderr);
+
+//$cmd="mosquitto_sub -h localhost -t emetro";
+//exec($cmd, $stdout, $stderr);
+
+//echo ".</br>    ".$stdout[8];
+
+//echo $stdout[9];
+
+
+
+		}
+
+
+
+
+foreach ($stdout as $output) {
+echo "$output <br>";
+}
+
+
+
+echo "</br>    ";
+ $_SESSION['email'] = $email ;
+echo $email;
+echo "</br>    ";
+
+
+include ("logout.php");     //log user out
+
+
+
+?>

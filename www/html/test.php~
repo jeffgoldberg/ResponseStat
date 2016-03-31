@@ -1,0 +1,43 @@
+<?php
+echo 'xxxx';
+
+<script>
+var $menu_tags = [
+  {slug: 'menu_allergen_milk',    name: 'Milk'},
+  {slug: 'menu_allergen_mustard',   name: 'Mustard'}
+]; 
+</script>
+/*
+var MENU_TAGS_COLUMN_COUNT = 4;
+
+(function printArrayInTabularFormat(menuTags, colCount) {
+    var html = '<table name="tblMenuAllergens" cellpadding="1" border="1"><thead></thead><tbody>' + "\n";
+
+    var cellIndex=1;
+    for (var $i=0; $i<menuTags.length; $i++) {
+      if (cellIndex == 1) {
+        html += '<tr>';
+      }
+      var $id    = menuTags[$i]['slug'];
+      var $name  = menuTags[$i]['name'];
+      html += '<td width="120">' + $name + '</td>' + "\n";
+      if (++cellIndex > colCount) { //close the row
+        html += '</tr>';
+        cellIndex = 1;
+      }
+    }
+    //finish empty cells
+    var remainingCellsCount = menuTags.length % colCount;
+    if (remainingCellsCount) {
+      for (var $i=0; $i<remainingCellsCount; $i++) {
+        html += '<td width="120"> </td>' + "\n";
+      }
+      html += '</tr>';
+    }
+    html += '</tbody></table>' + "\n";
+    html += '</td></tr></tbody></table>' + "\n";
+   
+    document.getElementById('allergensTable').innerHTML = html;
+})($menu_tags, MENU_TAGS_COLUMN_COUNT);  */
+
+?>

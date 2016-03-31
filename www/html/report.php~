@@ -1,0 +1,63 @@
+<?php
+
+    session_start();
+    require_once('/var/www/config.php');
+	
+	$records_per_page = 100;
+	$cur_page = (int)$_GET['cur_page'];
+	if (!$cur_page || $cur_page == 0){
+	    $cur_page=1;
+	}
+echo "a";
+	//need: host, user, password, database
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASS, 'baseball');
+echo "link";
+	//GET COUNT OF RECORDS
+	$sql_count = "SELECT count(*) AS COUNT FROM AllstarFull
+		INNER JOIN Teams ON AllstarFull.teamID=Teams.teamID";
+	$result1 = $link->query($sql_count);
+        echo "result  " . $result1;
+	foreach ($result1 as $row){
+		$total_records = $row['COUNT'];
+	}
+
+echo "b";
+	//run the actual query
+	$sql_query = "SELECT * FROM AllstarFull
+		      INNER JOIN Teams ON AllstarFull.teamID=Teams.teamID
+		      LIMIT 0,".$records_per_page;
+	$result = $link->query($sql_query);	
+
+	//REPORT HEADER
+	$content = '<table width="100%"><thead><tr>';
+	$content .= '<td width="20%">Player</td><td width="20%">Year</td><td width="20%">Game</td><td width="20%">Team</td><td width="20%">League</td></thead>';
+	$content .= "<tbody>";
+
+	foreach($result as $row){
+		//COLLECT INFO FROM DB -> ASSIGN TO VARIABLES
+		$player = $row['playerID'];
+		$year = $row['yearID'];
+		$game = $row['gameID'];
+		$team = $row['name'];
+		$league = $row['lgID'];
+
+		//APPEND INFO FROM VARIABLES TO OUTPUT BUFFER/VARIABLE
+		$content .= "<td>".$player."</td><td>".$year."</td><td>".$game."</td><td>".$team."</td><td>".$league."</td></tr>";
+	}
+
+	//REPORT FOOTER
+	$prev_page = $cur_page -1;
+	$next_page = $cur_page +1;
+	if ($cur_page > 1){
+	    $pagination = '<a href="report.php?cur_page='.$prev_page.'"><<< Previous</a>';
+	}
+	$pagination .= '&nbsp;<a href="report.php?cur_page='.$next_page.'">Next >>></a>';
+	$pages = ceil($total_records/$records_per_page);
+
+	$content .= '<tr><td align="center" colspan=5>'.$pagination.'</td></tr>';
+	$content .= '<tr><td align="center" colspan=5>Total Pages:'.$pages.'</td></tr>';
+
+	$content .= "</tbody></table><hr>";
+	
+	echo $content;
+?>

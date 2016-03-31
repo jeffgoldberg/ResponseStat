@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<center><font color="blue"><h1>Dispatch Report</h1></center>
+<center><h3>Inner Join - Hospital and Dispatch Tables</h3></center></font>
+<font color = "SteelBlue ">
+<?php
+
+    session_start();
+    require_once('/var/www/config.php');
+	
+	$records_per_page = 20;
+	$cur_page = (int)$_GET['cur_page'];
+	if (!$cur_page || $cur_page == 0){
+	    $cur_page=1;
+	}
+
+	//need: host, user, password, database
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASS, "emetromedical");
+
+	//GET COUNT OF RECORDS
+	$sql_count = "SELECT count(*) AS COUNT FROM dispatch
+		INNER JOIN hospital ON dispatch.hospitalid=hospital.hospitalid";
+	$result1 = $link->query($sql_count);
+	foreach ($result1 as $row){
+		$total_records = $row['COUNT'];
+	}
+
+	
+	$literal="                                                                                                                                                                                                                                                                                    Page: ".$cur_page."<br><br>"; 
+	$pgnum = str_replace(' ', '&nbsp;', $literal);
+	echo $pgnum;
+
+
+    //join query notes
+
+	//SELECT dispatch.hospitalid, hospital.name, hospital.address1, hospital.city, dispatch.stamp AS DispatchDateTimeStamp
+	//FROM dispatch, hospital
+	//WHERE dispatch.hospitalid = hospital.hospitalid
+
+	//run the actual query
+$start = 0;
+//echo $cur_page;
+	if ($cur_page>=1) {
+			$start = (($cur_page - 1) * $records_per_page);
+			}
+	$sql_query = "SELECT dispatch.hospitalid, hospital.name, hospital.address1, hospital.city, dispatch.stamp, dispatch.ipaddr, dispatch.patientid
+	 FROM dispatch
+		      INNER JOIN hospital ON dispatch.hospitalid=hospital.hospitalid
+		      LIMIT ".$start.",".$records_per_page;
+
+
+	$result = $link->query($sql_query);	
+
+	//REPORT HEADER
+	$content = '<table width="100%"><thead><tr>';
+	$content .= '<td width="5%">HospID</td><td width="15%">HospitalName</td><td width="20%">Address</td><td width="15%">City</td><td width="15%">DispatchDateTime</td><td width="10%">DispatchIpAddress</td><td width="5%">PatientID</td></thead>';
+	$content .= "<tbody>";
+
+	foreach($result as $row){
+		//COLLECT INFO FROM DB -> ASSIGN TO VARIABLES
+		$hospitalid = $row['hospitalid'];
+		$hospitalname = $row['name'];
+		$address = $row['address1'];
+		$city = $row['city'];
+		$dispatchdatetime = $row['stamp'];
+                $dispatchipaddr = $row['ipaddr'];
+                $dispatchpatientid = $row['patientid'];
+
+		//APPEND INFO FROM VARIABLES TO OUTPUT BUFFER/VARIABLE
+		$content .= "<td>".$hospitalid."</td><td>".$hospitalname."</td><td>".$address."</td><td>".$city."</td><td>".$dispatchdatetime."</td><td>".$dispatchipaddr."</td><td>".$dispatchpatientid."</td></tr>";
+	}
+
+	//REPORT FOOTER
+	$prev_page = $cur_page -1;
+	$next_page = $cur_page +1;
+	if ($cur_page > 1){
+	    $pagination = '<a href="kreport.php?cur_page='.$prev_page.'"><font color = "red"><<< Previous</a>';
+	}
+	$pagination .= '&nbsp;<a href="kreport.php?cur_page='.$next_page.'"><font color = "red">Next >>></a>';
+	$pages = ceil($total_records/$records_per_page);
+
+	$content .= '<tr><td align="center" colspan=5>'.$pagination.'</td></tr>';
+	$content .= '<tr><td align="center" colspan=5>Total Pages:'.$pages.'</td></tr>';
+
+	$content .= "</tbody></table><hr>";
+	
+	echo $content;
+?>
+<a class="btn" href="../logout.php">
+    <button class="btn" type="submit">Close</button></a>
+</html>
+

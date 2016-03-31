@@ -1,0 +1,90 @@
+/* CSS Document */
+
+body{ margin:0px; padding:0px;}
+p{ margin:0px; padding:0px;}
+img{ border:0px;}
+
+#mainblock{  width:1000px; margin: auto;}
+#innerblock{ width:1000px; float:left; background:#ECECEC repeat;} 
+
+
+a:hover{ text-decoration: underline;}
+.topblock{ display:inline; clear:left; float:left; width:1000px;}
+.tp_bg1{ display:inline; clear:left; float:left; height:350px; width:466px; background:url(../images/tp_bg1.jpg) no-repeat;}
+.tp_logo{ clear:left; float:left; margin:28px 0px 0px 60px;}
+.navig_1pxx{ display:inline; clear:left; float:left; height:53px; width:942px; background:url(../images/home_bg.gif) repeat-x; margin-left:29px;}
+.tp_click{ clear:left; float:left; margin:153px 0px 0px 80px;}
+.tp_create{ float:left; margin:94px 0px 0px 38px;}
+.tp_bar{ float:left; margin:0px 0px 0px 38px;}
+.tp_home{ clear:left; float:left; margin:20px 0px 0px 97px;}
+.tp_home1{ float:left; margin:20px 0px 0px 31px;}
+
+
+.cp_div{ display: inline; clear:left; float:left; width:942px; background:#F6F6F6 repeat; margin-left:29px;}
+.welcome{ display: inline; clear:left; float:left; width:712px;}
+.wel_bg{ display: inline; clear:left; float:left; width:666px; height:54px; background:url(../images/wel_bg.gif) repeat-x;}
+.lp_welcome{ clear:left; float:left; margin:19px 0px 0px 16px;}
+.lp_div{ display:inline; clear:left; float:left; width:712px;}
+.wel_txt{ clear:left; float:left; width:632px; font:11px/18px tahoma; color:#878787; margin:10px 0px 0px 15px;}
+.lp_view{ clear:left; float:left; width:52px; font:11px/18px tahoma; color:#000000; margin:8px 0px 0px 15px; text-decoration:none;}
+.view_arrow{ float:left; margin:16px 0px 0px 8px;}
+.lates_serv{ clear:left; float:left; width:712px; background:url(../images/serv_1pxx.gif) repeat; margin-top:15px;}
+.lp_latest{ clear:left; float:left; margin:20px 0px 0px 37px;}
+.lates_line{ clear:left; float:left; margin:21px 0px 0px 15px;}
+.lates_arrow{ clear:left; float:left; margin:17px 0px 0px 35px;}
+.lates_txt{ float:left; width:210px; font:11px/18px tahoma; color:#737373; margin:16px 0px 0px 6px; text-decoration:none;}
+.lates_img1{ clear:left; float:left; margin:21px 0px 0px 55px;}
+.lates_img2{ float:left; margin:21px 0px 0px 31px;}
+.lates_view{ clear:left; float:left; width:52px; font:11px/18px tahoma; color:#000000; margin:8px 0px 0px 35px; text-decoration:none;}
+.lp_subscribe{ clear:left; float:left; margin:17px 0px 0px 60px;}
+.enter_mail{ clear:left; float:left; width:140px; font: bold 11px/15px arial; color:#169CDA; margin:12px 0px 0px 59px;}
+.mail_box{ clear:left; float:left; margin:10px 0px 0px 60px;}
+.sub_go{ clear:left; float:left; margin:5px 0px 0px 262px;}
+.sub_line{ clear:left; float:left; margin:16px 0px 0px 0px;}
+.sub_txt{ clear:left; float:left; width:243px; font: bold 11px/15px arial; color:#878787; margin:18px 0px 0px 47px;}
+.sub_arrow{ clear:left; float:left; margin:10px 0px 0px 59px;}
+.sub_txt1{ float:left; width:175px; font: 11px/15px arial; color:#181A1A; margin:8px 0px 0px 6px; text-decoration:none;}
+
+
+
+.rp_div{ display:inline; float:left; width:230px;}
+.login{ display:inline; clear:left; float:left; width:230px;}
+.memb_bg{ clear:left; float:left; width:230px; height:41px; background: url(../images/memb_bg.gif) repeat-x;}
+.rp_members{ clear:left; float:left; margin:12px 0px 0px 44px;}
+.mail_bg{ clear:left; float:left; width:230px; background:#BDE8FB; padding-bottom:15px;}
+.rp_line{ clear:left; float:left; margin:0px 0px 0px 9px;}
+.rp_name{ clear:left; float:left; width:60px; font: bold 11px/15px arial; color:#515151; margin:12px 0px 0px 31px;}
+.name_box{ clear:left; float:left; margin:6px 0px 0px 31px;}
+.rp_login{ clear:left; float:left; margin:10px 0px 0px 122px;}
+.rp_forgot{ clear:left; float:left; width:125px; font: bold 11px/15px arial; color:#515151; margin:8px 0px 0px 71px; text-decoration:none;}
+.bot_line{ clear:left; float:left; margin:15px 0px 0px 9px;}
+.download{ display:inline; clear:left; float:left; width:210px; height:73px; background: #FFFFFF; margin:27px 0px 0px 10px;}
+.rp_download{ clear:left; float:left; margin:8px 0px 0px 34px;}
+.rp_sales{ clear:left; float:left; margin:8px 0px 0px 89px;}
+.rp_serv{ clear:left; float:left; margin:8px 0px 0px 46px;}
+.down_txt1{ clear:left; float:left; width:133px; font: 11px/15px arial; color:#DE8772; margin:8px 0px 0px 13px; text-decoration:none;}
+.down_txt2{ clear:left; float:left; width:70px; font: 11px/15px arial; color:#DE8772; margin:2px 0px 0px 83px; text-decoration:none;}
+.down_txt3{ clear:left; float:left; width:116px; font: 11px/15px arial; color:#DE8772; margin:8px 0px 0px 29px; text-decoration:none;}
+.down_img{ float:left; margin:20px 0px 0px 0px;}
+.rp_cont_bg{ clear:left; float:left; width:230px; background:#980F0F url(../images/rp_cont_bg.gif) repeat-x; margin-top:2px; padding-bottom:11px;}
+.rp_contact{ clear:left; float:left; margin:17px 0px 0px 16px;}
+.cont_txt{ clear:left; float:left; width:190px; font: bold 14px/18px arial; color:#ffffff; margin:9px 0px 0px 16px; }
+.cont_txt1{ clear:left; float:left; width:185px; font: 11px/18px arial; color:#FFF152; margin:9px 0px 0px 16px;}
+.rp_phone{ clear:left; float:left; width:34px; font: bold 11px/15px arial; color:#737373; margin:11px 0px 0px 17px; }
+.phone_no{ float:left; width:105px; font: bold 11px/15px arial; color:#ffffff; margin:11px 0px 0px 0px; }
+.rp_fax{ clear:left; float:left; width:34px; font: bold 11px/15px arial; color:#737373; margin:2px 0px 0px 17px; }
+.fax_no{ float:left; width:105px; font: bold 11px/15px arial; color:#ffffff; margin:2px 0px 0px 0px; }
+
+.int_praesent{ display:inline; clear:left; float:left; width:712px; margin-top:35px;}
+.pares_txt{ clear:left; float:left; width:235px; font: 13px/18px arial; color:#C51110; margin:0px 0px 0px 17px;}
+.praes_bg{ clear:left; float:left; width:283px; height:25px; background:#BBE8F9; margin:14px 0px 0px 15px;}
+.pares_txt1{ clear:left; float:left; width:272px; font: bold 11px/14px arial; color:#484848; margin:6px 0px 0px 8px; text-decoration:none;}
+
+
+.ft_bg{ display:inline; clear:left; float:left; width:942px; height:103px; background:url(../images/ft_bg.gif) repeat-x; margin-left:29px;}
+.ft_bar{ float:left; margin:32px 0px 0px 15px;}
+.ft_home{ clear:left; float:left; width:29px; font: 11px/15px tahoma; color:#000000; margin:29px 0px 0px 247px; text-decoration:none; }
+.ft_dom{ float:left; width:45px; font: 11px/15px tahoma; color:#000000; margin:29px 0px 0px 15px; text-decoration:none;}
+.ft_copy{ clear:left; float:left; width:320px; font: 11px/15px tahoma; color:#454545; margin:8px 0px 0px 323px;}
+.ft_serv{ float:left; width:65px; font: 11px/15px tahoma; color:#000000; margin:29px 0px 0px 15px; text-decoration:none;}
+.ft_sale{ float:left; width:27px; font: 11px/15px tahoma; color:#000000; margin:29px 0px 0px 15px; text-decoration:none;}

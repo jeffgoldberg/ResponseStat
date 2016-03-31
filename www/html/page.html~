@@ -1,0 +1,8 @@
+<html>
+<body>
+
+<div id="display">Hello!</div>
+</body>
+<script file="tests.js"/>
+<script impl="impl.js"/>
+</html>
