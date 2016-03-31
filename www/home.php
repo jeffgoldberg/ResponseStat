@@ -1,0 +1,68 @@
+
+<?php
+	$msg = $_GET['msg'];
+	if ($msg == 'pw'){
+    		$message = "Your password is incorrect.<br /> Please re-enter";
+	}else{
+    		$message = 'ok';
+	}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+    <head>        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- above 3 tags must be first -->
+        <meta name="description" content="">
+        <meta name="author" content="Duane/Jeff">
+        
+       
+              <title>Signin Template for Bootstrap</title>
+        
+        <!-- Bootstrap core CSS -->
+        <link href="./bootstrap.min.css" rel="stylesheet">
+        <script src="/jquery-2.1.4.min.js></script>
+                
+                <!--Custom styles for this template -->
+                <link href="signin.css" rel="stylesheet">
+                   
+    	</head>
+    
+    <body>
+        <div class="container">
+        
+            <form class="form-signin" action="process.php" method="post">
+            
+            <?php
+            if ($message == ''){
+                echo '<h2 class="form-signin-heading">Please sign in</h2>';
+            }else{
+                echo '<h2 class="form-signin-heading" style="color:red;">'.$message.'</h2>';
+                
+            }
+            
+    ?>
+        
+        
+        <input type="email" id="email" name="email" class="form-control"
+            placeholder="Email address" required autofocus>
+        <input type="password" id="pass" name="pass" class="form-control"
+            placeholder="Password" required>
+                    <div class="checkbox">
+                    <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="login">Sign in</button>
+     </form>
+    </div> <!-- /container -->
+   </body>
+</html>
