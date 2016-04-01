@@ -1,6 +1,6 @@
 {
   "name": "ResponseStat Emergency Medical Dispatch",
   "tagline": "ResponseStat Emergency Dispatch System - Capstone Project SDCCD WSMS --- Jeff Goldberg / Kevin O'Neil",
-  "body": "# ### ResponseStat\r\n## Emergency Dispatch System\r\n",
+  "body": "# ### ResponseStat\r\n## Emergency Dispatch System\r\n\r\n\r\n### Website in PHP, JavaScript, AJAX, JQuery using HTML5, CSS, Bootstrap and MySQL to support an emergency dispatch operation sending push notifications with details from the dispatcher to the hospital using MQTT and Mosquitto. ",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
